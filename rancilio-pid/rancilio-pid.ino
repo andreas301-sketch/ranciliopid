@@ -950,7 +950,7 @@ void brewdetection()
 
   if (Brewdetection == 1) 
   {
-    if (heatrateaverage <= -brewboarder && timerBrewdetection == 0 && !kaltstart ) 
+    if (heatrateaverage <= -brewboarder && timerBrewdetection == 0 && abs((Input-setPoint)) < 3 ) // SW nur auslösen, wenn +/- 2 Grad am Setpoint
     {
       DEBUG_println("SW Brew detected") ;
       timeBrewdetection = millis() ;
